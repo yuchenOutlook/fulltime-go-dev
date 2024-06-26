@@ -48,6 +48,10 @@ func main() {
 		numberStore: &MongoDBNumberStore{},
 	}	
 
+	if err := apiServer.numberStore.Put(1); err != nil {
+		panic("Error occured when putting a number")
+	}
+
 	numbers, err := apiServer.numberStore.GetAll()
 	if err != nil {
 		panic("THere is an error")
